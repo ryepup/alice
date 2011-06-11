@@ -5,7 +5,10 @@
   :depends-on (#:iterate
                #:alexandria
                #:talcl
-               #:hunchentoot)
+               #:hunchentoot
+	       #:cl-mediawiki
+	       #:split-sequence)
   :components ((:file "package")
-               (:file "alice")))
+               (:file "alice")
+	       (:file "www")))
 
