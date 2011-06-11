@@ -34,7 +34,13 @@
 	    ((search "== Classes" content)
 	     (setf seen-classes-p T))
 	    (seen-classes-p
-	     (appendf (classes course)
-		      (make-instance 'dance-class :moves (parse-wiki-list content))
-				 )))
-	  (finally (return course)))))
+	     (collect
+		 (make-instance 'dance-class
+				:name (string-trim
+				       "=" (first
+					    (split-sequence #\newline content :count 1)))
+				:moves (parse-wiki-list content))
+	       into classes)))
+	  (finally
+	   (setf (classes course) classes)
+	   (return course)))))

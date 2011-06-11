@@ -4,7 +4,25 @@
     <meta charset="utf8"/>
   </head>
   <body>
-    Hello talcl.
+    Hello, I'm Alice.  I'm here to help with the paperwork.
+    <h3>Students</h3>
+    <ol> 
+      <tal:loop tal:var="s" tal:list="(students course)">
+	<li tal:content="$s"/>
+      </tal:loop>
+    </ol>
+    <h3>Classes</h3>
+    <ol> 
+      <tal:loop tal:var="c" tal:list="(classes course)">
+	<li>$(name c)
+	  <ul>
+	    <tal:loop tal:var="m" tal:list="(moves c)">
+	      <li tal:content="$m"/>
+	    </tal:loop>
+	  </ul>
+	</li>
+      </tal:loop>
+    </ol>
   </body>
 </html>
 
