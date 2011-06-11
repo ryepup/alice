@@ -17,8 +17,10 @@
   (iter (for line in (split-sequence #\newline text))
 	(when (starts-with #\# line)
 	  (collect (subseq line 2)))))
-
+(defvar *cc* nil)
 (defun current-course ()
+  (when *cc* (return-from current-course *cc*))
+  
   (cl-mediawiki:with-mediawiki ((make-instance 'cl-mediawiki:mediawiki
 					      :url "http://www.shamblingshimmies.com/wiki"))
     (cl-mediawiki:login "alice" "t cells rule")

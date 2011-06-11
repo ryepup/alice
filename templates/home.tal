@@ -1,0 +1,15 @@
+<tal:tal xmlns:tal="http://common-lisp.net/project/bese/tal/core"
+	 xmlns:param="http://common-lisp.net/project/bese/tal/params"
+	 tal:in-package=":alice">
+  <tal:include tal:name="template.tal">
+    <param:body>
+      <p>
+	Hello, I'm Alice.  I'm here to help with the paperwork.
+      </p>
+      <button>Start Jam Class</button><br/><br/>
+      <tal:loop tal:var="c" tal:list="(classes course)">
+	<button>Start $(name c) Class</button>
+      </tal:loop>
+    </param:body>
+  </tal:include>
+</tal:tal>

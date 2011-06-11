@@ -25,6 +25,6 @@
 	  (talcl:run-template *tal-generator* template tal-env)))
 
 (hunchentoot:define-easy-handler (home :uri "/") ()
-  (render-page "template.tal"
+  (render-page "home.tal"
 	       (talcl:tal-env 'course (current-course))
 		 ))

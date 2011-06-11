@@ -1,33 +1,19 @@
-<html lang="en" xmlns:tal="http://common-lisp.net/project/bese/tal/core"
+<html lang="en" 
+      xmlns:tal="http://common-lisp.net/project/bese/tal/core"
+      xmlns:param="http://common-lisp.net/project/bese/tal/params"
       tal:in-package=":alice">
   <head>
     <meta charset="utf8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"> </script>
+    <script src="/script/alice.js"> </script>
     <link rel="stylesheet" href="/css/ui-darkness/jquery-ui-1.8.13.custom.css" type="text/css" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
 
   </head>
   <body>
-    Hello, I'm Alice.  I'm here to help with the paperwork.
-    <h3>Students</h3>
-    <ol> 
-      <tal:loop tal:var="s" tal:list="(students course)">
-	<li tal:content="$s"/>
-      </tal:loop>
-    </ol>
-    <h3>Classes</h3>
-    <ol> 
-      <tal:loop tal:var="c" tal:list="(classes course)">
-	<li>$(name c)
-	  <ul>
-	    <tal:loop tal:var="m" tal:list="(moves c)">
-	      <li tal:content="$m"/>
-	    </tal:loop>
-	  </ul>
-	</li>
-      </tal:loop>
-    </ol>
+    <div id="body">$body</div>
+
   </body>
 </html>
 
