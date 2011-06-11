@@ -2,6 +2,11 @@
       tal:in-package=":alice">
   <head>
     <meta charset="utf8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"> </script>
+    <link rel="stylesheet" href="/css/ui-darkness/jquery-ui-1.8.13.custom.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+
   </head>
   <body>
     Hello, I'm Alice.  I'm here to help with the paperwork.

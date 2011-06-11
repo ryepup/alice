@@ -10,5 +10,7 @@
 	       #:split-sequence)
   :components ((:file "package")
                (:file "alice")
-	       (:file "www")))
+	       (:module "src"
+		:serial t
+		:components ((:file "www")))))
 
