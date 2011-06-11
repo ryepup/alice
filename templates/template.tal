@@ -1,0 +1,10 @@
+<html lang="en" xmlns:tal="http://common-lisp.net/project/bese/tal/core"
+      tal:in-package=":alice">
+  <head>
+    <meta charset="utf8"/>
+  </head>
+  <body>
+    Hello talcl.
+  </body>
+</html>
+
