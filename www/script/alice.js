@@ -8,7 +8,7 @@ var alice = {};
 	     $('#body').position(
 		 {
 		     of:$('body'),
-		     my:"center center",
+		     my:"center bottom",
 		     at:"center center"
 		 });	     
 	 };

@@ -3,10 +3,7 @@
 	 tal:in-package=":alice">
   <tal:include tal:name="template.tal">
     <param:body>
-      <p>
-	Hello, I'm Alice.  I'm here to help with the paperwork.
-      </p>
-      <button>Start Jam Class</button><br/><br/>
+      <button>Start Jam Class</button><br/>
       <tal:loop tal:var="c" tal:list="(classes course)">
 	<button>Start $(name c) Class</button>
       </tal:loop>

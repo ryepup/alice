@@ -12,7 +12,10 @@
 
   </head>
   <body>
-    <div id="body">$body</div>
+    <p style="margin-left:150px;">
+      Hello, I'm Alice.  I'm here to help with the paperwork.
+    </p>
+    <span id="body">$body</span>
 
   </body>
 </html>
