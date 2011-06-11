@@ -1,0 +1,11 @@
+
+* Functionality
+** Version 0
+*** Specify classes in a course
+*** Specify students in a cource
+*** Record student attendence in each class of the course
+** Version 1
+*** Record what moves were covered in class
+*** Review what moves a student has been taught
+* Implementation
+** data source: wikimedia?
