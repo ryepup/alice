@@ -1,0 +1,30 @@
+<tal:tal xmlns:tal="http://common-lisp.net/project/bese/tal/core"
+	 xmlns:param="http://common-lisp.net/project/bese/tal/params"
+	 tal:in-package=":alice">
+  <tal:include tal:name="template.tal">
+    <param:body>
+      $name
+      <div class="tabs">
+	<ul>
+	  <li><a href="#students">Students</a></li>
+	  <li><a href="#wrap-up">Wrap up</a></li>
+	</ul>
+	<div id="students">
+	  attendence
+	</div>
+	<div id="wrap-up">
+	  <tal:loop tal:var="move" tal:list="(moves class)">
+	    <div id="radio">
+	      <input type="radio" id="radio1" name="radio" />
+	      <label for="radio1">move</label>
+	      <input type="radio" id="radio2" name="radio" checked="checked" /><label for="radio2">Choice 2</label>
+	      <input type="radio" id="radio3" name="radio" /><label for="radio3">Choice 3</label>
+	</div>
+
+	    $move
+	  </tal:loop>
+	</div>
+      </div>
+    </param:body>
+  </tal:include>
+</tal:tal>

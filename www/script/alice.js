@@ -2,8 +2,8 @@ var alice = {};
 
 (function(self){
      self.init = function(){
-	 $('button').button();
-	 
+	 $('button,a.button').button();
+	 $('div.tabs').tabs();
 	 var recenter = function(){
 	     $('#body').position(
 		 {

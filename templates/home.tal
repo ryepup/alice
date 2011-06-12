@@ -5,7 +5,7 @@
     <param:body>
       <button>Start Jam Class</button><br/>
       <tal:loop tal:var="c" tal:list="(classes course)">
-	<button>Start $(name c) Class</button>
+	<a class="button" href="class?name=$(name c)">Start $(name c) Class</a>
       </tal:loop>
     </param:body>
   </tal:include>

@@ -28,3 +28,9 @@
   (render-page "home.tal"
 	       (talcl:tal-env 'course (current-course))
 		 ))
+(hunchentoot:define-easy-handler (dance-class :uri "/class") (name)
+  (render-page "class.tal"
+	       (talcl:tal-env 'name name
+			      'class (find-class-by-name (current-course) name))
+	       
+		 ))

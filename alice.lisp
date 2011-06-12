@@ -9,6 +9,9 @@
   ((students :accessor students :initarg :students)
    (classes :accessor classes :initarg :classes :initform (list))))
 
+(defmethod find-class-by-name ((self course) (name string))
+  (find name (classes self) :test #'string= :key #'name))
+
 (defclass dance-class ()
   ((moves :accessor moves :initarg :moves)
    (name :accessor name :initarg :name)))
@@ -38,9 +41,13 @@
 	    (seen-classes-p
 	     (collect
 		 (make-instance 'dance-class
-				:name (string-trim
-				       "=" (first
-					    (split-sequence #\newline content :count 1)))
+				:name (string-right-trim
+				       " "
+				       (string-left-trim
+					" "
+					(string-trim
+					 "=" (first
+					      (split-sequence #\newline content :count 1)))))
 				:moves (parse-wiki-list content))
 	       into classes)))
 	  (finally
