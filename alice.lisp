@@ -21,6 +21,10 @@
 	(when (starts-with #\# line)
 	  (collect (subseq line 2)))))
 (defvar *cc* nil)
+
+(defun wiki-heading-text (content)
+  (string-trim "= " (first (split-sequence #\newline content :count 1))))
+
 (defun current-course ()
   (when *cc* (return-from current-course *cc*))
   
@@ -41,13 +45,7 @@
 	    (seen-classes-p
 	     (collect
 		 (make-instance 'dance-class
-				:name (string-right-trim
-				       " "
-				       (string-left-trim
-					" "
-					(string-trim
-					 "=" (first
-					      (split-sequence #\newline content :count 1)))))
+				:name (wiki-heading-text content)
 				:moves (parse-wiki-list content))
 	       into classes)))
 	  (finally

@@ -7,7 +7,9 @@
                #:talcl
                #:hunchentoot
 	       #:cl-mediawiki
-	       #:split-sequence)
+	       #:split-sequence
+	       #:symbol-munger
+	       #:buildnode)
   :components ((:file "package")
                (:file "alice")
 	       (:module "src"

@@ -3,27 +3,19 @@
 	 tal:in-package=":alice">
   <tal:include tal:name="template.tal">
     <param:body>
-      $name
-      <div class="tabs">
-	<ul>
-	  <li><a href="#students">Students</a></li>
-	  <li><a href="#wrap-up">Wrap up</a></li>
-	</ul>
-	<div id="students">
-	  attendence
-	</div>
-	<div id="wrap-up">
-	  <tal:loop tal:var="move" tal:list="(moves class)">
-	    <div id="radio">
-	      <input type="radio" id="radio1" name="radio" />
-	      <label for="radio1">move</label>
-	      <input type="radio" id="radio2" name="radio" checked="checked" /><label for="radio2">Choice 2</label>
-	      <input type="radio" id="radio3" name="radio" /><label for="radio3">Choice 3</label>
-	</div>
-
-	    $move
-	  </tal:loop>
-	</div>
+      <h3>$name Class Attendence</h3>
+      <div>
+	<tal:loop tal:var="s" tal:list="students">
+	  <input type="checkbox" class="button" id="s$(position s students :test #'string=)" />
+	  <label for="s$(position s students :test #'string=)">$s</label>
+	</tal:loop>
+      </div>
+      <h3>Moves Covered</h3>
+      <div>
+	<tal:loop tal:var="move" tal:list="(moves class)">	    
+	  <input type="checkbox" class="button" id="m$(position move (moves class) :test #'string=)" />
+	  <label for="m$(position move (moves class) :test #'string=)">$move</label>
+	</tal:loop>
       </div>
     </param:body>
   </tal:include>
