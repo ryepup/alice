@@ -9,7 +9,8 @@
 	       #:cl-mediawiki
 	       #:split-sequence
 	       #:symbol-munger
-	       #:buildnode)
+	       #:buildnode
+	       #:cl-store)
   :components ((:file "package")
                (:file "alice")
 	       (:module "src"
