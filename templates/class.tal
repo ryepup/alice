@@ -3,17 +3,18 @@
 	 tal:in-package=":alice">
   <tal:include tal:name="template.tal">
     <param:body>
-      <h3>$name Class Attendence</h3>
-      <div>
+      <input type="hidden" id="class-id" value="$name"/>
+      <h3>$name Class Attendance</h3>
+      <div id="class-attendance">
 	<tal:loop tal:var="s" tal:list="students">
-	  <input type="checkbox" class="button" id="s$(position s students :test #'string=)" />
+	  <input type="checkbox" class="button" id="s$(position s students :test #'string=)" value="$s" />
 	  <label for="s$(position s students :test #'string=)">$s</label>
 	</tal:loop>
       </div>
       <h3>Moves Covered</h3>
-      <div>
+      <div id="class-moves">
 	<tal:loop tal:var="move" tal:list="(moves class)">	    
-	  <input type="checkbox" class="button" id="m$(position move (moves class) :test #'string=)" />
+	  <input type="checkbox" class="button" id="m$(position move (moves class) :test #'string=)" value="$move" />
 	  <label for="m$(position move (moves class) :test #'string=)">$move</label>
 	</tal:loop>
       </div>

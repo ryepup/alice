@@ -6,6 +6,7 @@
 
 (defvar *acceptor* nil "the hunchentoot acceptor")
 (defun start-server (&optional (port 8888))
+  (load-db)
   (setf *acceptor* (make-instance 'hunchentoot:acceptor :port port))  
   ;; make a folder dispatcher the last item of the dispatch table
   ;; if a request doesn't match anything else, try it from the filesystem
@@ -32,3 +33,13 @@
 	       (talcl:tal-env 'name name
 			      'students (students (current-course))
 			      'class (find-class-by-name (current-course) name))))
+
+(hunchentoot:define-easy-handler (api-attendance :uri "/api/attendance")
+    (id student)
+  (wrap-up-student id student)
+  "OK")
+
+(hunchentoot:define-easy-handler (api-moves :uri "/api/moves")
+    (id move)
+  (wrap-up-move id move)
+  "OK")

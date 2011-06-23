@@ -10,16 +10,50 @@
    (classes :accessor classes :initarg :classes :initform (list))))
 
 (defmethod find-class-by-name ((self course) (name string))
-  (find name (classes self) :test #'string= :key #'name))
+  (find (parse-integer name) (classes self) :key #'name))
 
 (defclass dance-class ()
   ((moves :accessor moves :initarg :moves)
    (name :accessor name :initarg :name)))
 
+(defclass wrap-up ()
+  ((name :accessor name :initarg :name)
+   (utime :accessor utime :initform (get-universal-time))
+   (moves :accessor moves :initarg :moves :initform nil)
+   (students :accessor students :initarg :students :initform nil))
+  )
+
 (defclass db ()
   ((moves :accessor moves :initform nil)
    (courses :accessor courses :initform nil)
-   (students :accessor students :initform nil)))
+   (students :accessor students :initform nil)
+   (wrap-ups :accessor wrap-ups :initform nil)))
+
+(defun ensure-wrap-up (name)
+  (or (find name (wrap-ups *db*) :key #'name
+				 :test #'string=)
+      (push (make-instance 'wrap-up :name name)
+	    (wrap-ups *db*))))
+
+(defun wrap-up-move (id move)
+  (let* ((wrap-up (ensure-wrap-up id))
+	 (moves (moves wrap-up)))
+    (if (find move moves :test #'string=)
+	(setf (moves wrap-up)
+	      (remove move moves :test #'string=))
+	(push move (moves wrap-up)))
+    (save-db)
+    (moves wrap-up)))
+
+(defun wrap-up-student (id student)
+  (let* ((wrap-up (ensure-wrap-up id))
+	 (students (students wrap-up)))
+    (if (find student students :test #'string=)
+	(setf (students wrap-up)
+	      (remove student students :test #'string=))
+	(push student (students wrap-up)))
+    (save-db)
+    (students wrap-up)))
 
 (defvar *db* nil)
 (defun load-db ()
@@ -60,3 +94,4 @@ Body Roll, Arabic")
 
 (defun current-course ()
   (first (courses *db*)))
+
